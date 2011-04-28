@@ -1,0 +1,36 @@
+//=============================================================================
+// External interface functions
+//=============================================================================
+
+function ScribitePluginsImageProtectionXinha(editor, ImPrURL)
+{
+    // Save editor for access in selector window
+    currentImPrEditor = editor;
+alert("test");
+    var Element = null;
+
+    Element = editor.getParentElement();
+
+    //TorD.aufgabe.Element = Element;
+
+    window.open(ImPrURL, "", getPopupAttributes());
+}
+
+function ScribitePluginsImageProtectionPS(targetId, ImPrURL)
+{
+	currentImPrInput = document.getElementById(targetId);
+	alert("test");	
+    if (currentImPrInput == null)
+        alert("Unknown input element '" + targetId + "'");
+
+    window.showModalDialog(ImPrURL, "", getPopupAttributes());
+}
+
+function getPopupAttributes()
+{
+	alert("test");
+    var pWidth = 600;
+    var pHeight = 300;
+
+    return "width="+pWidth+",height="+pHeight+",resizable=no,dependent=yes,location=no,status=no,toolbar=no,modal=yes";
+}

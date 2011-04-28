@@ -1,0 +1,95 @@
+<!--[*  $Author: Flo $ $Revision: 7 $ $Modtime: 10.02.10 21:10 $ $Id: $  *]-->
+
+<!--[include file="ImageProtection_admin_menu.htm"]-->
+<div class="z-admincontainer">
+	<div class="z-adminpageicon"><!--[* pnimg modname=core src=configure.gif set=icons/large __alt='_THUMBNAIL_SETTINGS'  *]--></div>
+	<h2><!--[gt text="Cache Settings"]--></h2>
+
+	<form class="z-form" action="<!--[pnmodurl modname="ImageProtection" type="admin" func="deleteCache"]-->" method="post">	
+	<fieldset class="z-form">
+		<legend><!--[gt text="Function - Delete cache"]--></legend>
+		<div class="z-formrow"> test
+			<input type="submit" name="<!--[gt text="Delete cache"]-->" value="<!--[gt text="Delete cache"]-->"/>
+			<p class="z-formnote z-informationmsg"><!--[gt text="with us of the settings"]--></p>
+		</div>
+	</fieldset>
+	</form>
+	<form class="z-form" action="<!--[pnmodurl modname="ImageProtection" type="admin" func="deleteCompleteCache"]-->" method="post">
+	<fieldset class="z-form">
+		<legend><!--[gt text="Function - Delete COMPLETE cache"]--></legend>
+		<div class="z-formrow"> test
+			<input type="submit" name="<!--[gt text="Delete COMPLETE cache "]-->" value="<!--[gt text="Delete COMPLETE cache"]-->"/>
+			<p class="z-formnote z-informationmsg"><!--[gt text="without use of the settings"]--></p>
+		</div>
+	</fieldset>
+	</form>
+	
+	<form class="z-form" action="<!--[pnmodurl modname="ImageProtection" type="admin" func="editCache"]-->" id="FormAdminCache" method="post" enctype="application/x-www-form-urlencoded">
+	<div>
+		<input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="ImageProtection"]-->" />
+		<fieldset>
+			<legend><!--[gt text="Comomn Settings"]--></legend>
+			<div class="z-formrow">
+				<label><!--[gt text="Enabled"]--></label>
+				<input name="settings[cache_enabled]" type="checkbox" value="1"<!--[if $Settings.cache_enabled == 1]--> checked="checked"<!--[/if]-->/>
+				<p class="z-formnote z-informationmsg"><!--[gt text="Should the generated images be caches.<br/> This increases the Perofmance because the images need not be regenrated all the time."]--></p>
+			</div>
+	
+			<div class="z-formrow">
+				<label><!--[gt text="Age of resized watermarks"]--></label>
+				<input name="settings[age_CacheWM]" type="text" size="10" maxlength="10" value="<!--[$Settings.age_CacheWM]-->" />
+				<p class="z-formnote z-informationmsg"><!--[gt text="Age after that the image are deleted out of the cache <br/>0 for no delete"]--></p>
+				<p class="z-formnote z-statusmsg"><!--[$DirInfo.path_CacheWM.count]-->&nbsp;<!--[gt text="Files (%s) in cache" tag1=$DirInfo.path_CacheWM.size]--></p>
+				<!--[if $DelInfo neq false and isset($DelInfo.path_CacheWM)]-->
+					<p class="z-formnote z-warningmsg"><!--[$DelInfo.path_CacheWM.count]-->&nbsp;<!--[gt text="Files (%s) deleted" tag1=$DelInfo.path_CacheWM.size]--></p>
+				<!--[/if]-->
+				
+			</div>
+			<div class="z-formrow">
+				<label><!--[gt text="Age of resized images with watermark"]--></label>
+				<input name="settings[age_CacheReWmImages]" type="text" size="10" maxlength="10" value="<!--[$Settings.age_CacheReWmImages]-->" />
+				<p class="z-formnote z-informationmsg"><!--[gt text="Age after that the image are deleted out of the cache <br/>0 for no delete"]--></p>
+				<p class="z-formnote z-statusmsg"><!--[$DirInfo.path_CacheReWmImages.count]-->&nbsp;<!--[gt text="Files (%s) in cache" tag1=$DirInfo.path_CacheReWmImages.size]--></p>
+				<!--[if $DelInfo neq false and isset($DelInfo.path_CacheReWmImages)]-->
+					<p class="z-formnote z-warningmsg"><!--[$DelInfo.path_CacheReWmImages.count]-->&nbsp;<!--[gt text="Files (%s) deleted" tag1=$DelInfo.path_CacheReWmImages.size]--></p>
+				<!--[/if]-->
+			</div>
+			<div class="z-formrow">
+				<label><!--[gt text="Age of images with userspez. watermark"]--></label>
+				<input name="settings[age_CacheProtected]" type="text" size="10" maxlength="10" value="<!--[$Settings.age_CacheProtected]-->" />
+				<p class="z-formnote z-informationmsg"><!--[gt text="Age after that the image are deleted out of the cache <br/>0 for no delete"]--></p>
+				<p class="z-formnote z-statusmsg"><!--[$DirInfo.path_CacheProtected.count]-->&nbsp;<!--[gt text="Files (%s) in cache" tag1=$DirInfo.path_CacheProtected.size]--></p>
+				<!--[if $DelInfo neq false and isset($DelInfo.path_CacheProtected)]-->
+					<p class="z-formnote z-warningmsg"><!--[$DelInfo.path_CacheProtected.count]-->&nbsp;<!--[gt text="Files (%s) deleted" tag1=$DelInfo.path_CacheProtected.size]--></p>
+				<!--[/if]-->				
+			</div>
+			<div class="z-formrow">
+				<label><!--[gt text="Age of cropped images"]--></label>
+				<input name="settings[age_CacheCroped]" type="text" size="10" maxlength="10" value="<!--[$Settings.age_CacheCroped]-->" />
+				<p class="z-formnote z-informationmsg"><!--[gt text="Age after that the image are deleted out of the cache <br/>0 for no delete"]--></p>
+				<p class="z-formnote z-statusmsg"><!--[$DirInfo.path_CacheCroped.count]-->&nbsp;<!--[gt text="Files (%s) in cache" tag1=$DirInfo.path_CacheCroped.size]--></p>
+				<!--[if $DelInfo neq false and isset($DelInfo.path_CacheCroped)]-->
+					<p class="z-formnote z-warningmsg"><!--[$DelInfo.path_CacheCroped.count]-->&nbsp;<!--[gt text="Files (%s) deleted" tag1=$DelInfo.path_CacheCroped.size]--></p>
+				<!--[/if]-->
+			</div>
+			<div class="z-formrow">
+				<label><!--[gt text="Age of temp. images"]--></label>
+				<input name="settings[age_CacheTemp]" type="text" size="10" maxlength="10" value="<!--[$Settings.age_CacheTemp]-->" />
+				<p class="z-formnote z-informationmsg"><!--[gt text="Age after that the image are deleted out of the cache <br/>0 for no delete"]--></p>
+				<p class="z-formnote z-statusmsg"><!--[$DirInfo.path_CacheTemp.count]-->&nbsp;<!--[gt text="Files (%s) in cache" tag1=$DirInfo.path_CacheTemp.size]--></p>
+				<!--[if $DelInfo neq false and isset($DelInfo.path_CacheTemp)]-->
+					<p class="z-formnote z-warningmsg"><!--[$DelInfo.path_CacheTemp.count]-->&nbsp;<!--[gt text="Files (%s) deleted" tag1=$DelInfo.path_CacheTemp.size]--></p>
+				<!--[/if]-->
+			</div>
+	
+		</fieldset>
+
+		<div class="z-formbuttons">
+			<!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
+			<a href="<!--[pnmodurl modname=ImageProtection type=admin func=Cache]-->"><!--[pnimg modname='core' src="button_cancel.gif" set="icons/small" __alt="Cancel" __title="Cancel"]--></a>
+			<strong style="color:#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;<!--[gt text="If you have done cahnges here, please delete the complete cache."]-->			
+		</div>		
+	
+	</div>
+	</form>
+</div>

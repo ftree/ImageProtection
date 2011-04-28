@@ -1,0 +1,92 @@
+<html>
+<head>
+	<title><!--[gt text="Bild einfgen"]--></title>
+    <link rel="stylesheet" type="text/css" href="modules/scribite/pnincludes/xinha/popups/popup.css" />
+	<script src="modules/ImageProtection/pnjavascript/ScribitePlugins.js" type="text/javascript"></script>
+	<script src="javascript/ajax/prototype.js" type="text/javascript"></script>
+	<script src="javascript/ajax/pnajax.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="<!--[$stylepath]-->/style.css" media="screen" />
+</head>
+<body class="dialog" onLoad="ImPr.Init();" >
+<div class="title"><!--[gt text="Bild einfgen"]--></div>
+
+<!--[*pndebug output="html"*]-->
+
+<form action="<!--[pnmodurl modname="ImageProtection" type="plugins" func="UploadImage"]-->" id="uploadForm" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="OrigWidth" id="f_OrigWidth" value="<!--[$OrigWidth]-->" />
+	<input type="hidden" name="OrigHeight" id="f_OrigHeight" value="<!--[$OrigHeight]-->" />
+	<input type="hidden" name="ThumbWidth" id="f_ThumbWidth" value="" />
+	<input type="hidden" name="ThumbHeight" id="f_ThumbHeight" value="" />
+
+	<input type="hidden" name="OrigFile" id="f_OrigFile" value="<!--[$OrigFile]-->" />
+	<input type="hidden" name="extraPath" id="f_extraPath" value="<!--[$extraPath]-->" />
+	<input type="hidden" name="baseURI" id="f_baseURI" value="<!--[$baseURI]-->" />
+	<input type="hidden" name="MAX_FILE_SIZE" value="5120000" />
+
+	<div style="padding:4px;background-color:#CCC;border:1px inset; float: left; margin-left:5px; margin-right:5px;">
+			<!--[if $ThumbURL != ""]-->
+				<img align="middle" src="<!--[$ThumbURL]-->" alt="" id="f_preview" width="150"/>
+			<!--[else]-->
+				<img src="modules/ImageProtection/pnimages/pixel.gif" alt="" id="f_preview" width="150" height="150"/>
+			<!--[/if]-->
+		<!--img src="modules/ImageProtection/pnimages/pixel.gif" alt="" id="f_preview" width="200" height="200"/-->
+	</div>
+	<div style="float:none">
+		<table >
+			<!--[*tr>
+				<td>
+					OrigWidth:<!--[$OrigWidth]--><br>
+					OrigHeight:<!--[$OrigHeight]--><br>
+					OrigFile:<!--[$OrigFile]--><br>
+					extraPath:<!--[$extraPath]--><br>
+					baseURI:<!--[$baseURI]--><br>
+					ThumbURL:<!--[$ThumbURL]-->	<br>
+				</td*]-->
+			</tr>
+			<tr>
+				<td>
+					<label><!--[gt text="Beschreibung"]--></label>
+				</td>
+				<td>
+					<input type="text" style="width:100%" id="f_title" class="largelWidth" name="title" value="<!--[$title]-->" />					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label><!--[gt text="Upload"]--></label>
+				</td>
+				<td>
+					<input type="file" name="uploadFile" id="upload" />
+					<button type="submit" name="submit"><!--[gt text="Upload"]--></button><!--[*(5000KB max.)*]-->					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label style="text-align:center"><!--[gt text="Anordnung"]--></label>
+				</td>
+				<td>
+					<select name="align" size="1" id="f_align" title="Positioning of this image">
+						<option value="" <!--[if $align==""]-->selected="selected"<!--[/if]-->><!--[gt text="nicht eingestellt"]--></option>
+						<option value="left" <!--[if $align=="left"]-->selected="selected"<!--[/if]-->><!--[gt text="links"]--></option>
+						<option value="right" <!--[if $align=="right"]-->selected="selected"<!--[/if]-->><!--[gt text="rechts"]--></option>
+<!--[*
+						<option value="left" <!--[if $align=="left"]-->selected="selected"<!--[/if]-->><!--[gt text="links"]--></option>
+						<option value="right" <!--[if $align=="right"]-->selected="selected"<!--[/if]-->><!--[gt text="rechts"]--></option>						
+*]-->						
+						<option value="middle" <!--[if $align=="middle"]-->selected="selected"<!--[/if]-->><!--[gt text="zentriert"]--></option>												
+					</select>					
+				</td>
+			</tr>						
+			<tr>
+				<td colspan="2">
+					<div id="buttons">
+						<button type="button" name="ok" onClick="ImPr.Insert()"><!--[gt text="OK"]--></button>
+						<button type="button" name="cancel" onClick="ImPr.Cancel()"><!--[gt text="Cancel"]--></button>
+					</div>			
+				</td>
+			</tr>		
+		</table>
+	</div>
+</form>
+</body>
+</html>

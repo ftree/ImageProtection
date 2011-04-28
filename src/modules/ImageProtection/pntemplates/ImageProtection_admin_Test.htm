@@ -1,0 +1,52 @@
+<!--[*  $Author: Flo $ $Revision: 9 $ $Modtime: 11.03.10 23:28 $ $Id: $  *]-->
+
+<!--[pnpageaddvar name=stylesheet value=modules/ImageProtection/pnjavascript/modalbox1.5.5/modalbox.css]-->
+<!--[pnajaxheader modname=ImageProtection filename=modalbox1.5.5\modalbox.js effects=true]-->
+
+<!--[include file="ImageProtection_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[* pnimg modname=core src=configure.gif set=icons/large __alt='_THUMBNAIL_SETTINGS'  *]--></div>
+	<h2><!--[gt text="Test"]--></h2>
+	<form action="<!--[pnmodurl modname="ImageProtection" type="admin" func="Test"]-->" id="FormAdminTest" method="post" enctype="application/x-www-form-urlencoded">
+	<div>
+			<input type="hidden" name="test_show" value="1" />
+			<!--[gt text="Select an image to test:"]-->
+			<select name="test_image" >
+			<!--[foreach from=$TESTfiles item=TESTfile]-->
+				<option value="<!--[$TESTfile.file]-->" <!--[if $TESTfile.file eq $test_image]-->selected="selected"<!--[/if]-->><!--[$TESTfile.display]--></option>
+			<!--[/foreach]-->
+			</select>
+			<input type="submit" value="<!--[gt text="Show Result"]-->" name="button_result" />
+			<br/>
+			<!--[gt text="Show Debug Info:"]--> <input type="checkbox" value="1" name="test_debug" <!--[if $test_debug eq 1]-->checked="checked"<!--[/if]--> />
+			<br/>
+			<!--[gt text="Force Image regeneration:"]--> <input type="checkbox" value="1" name="test_cache" <!--[if $test_cache eq 1]-->checked="checked"<!--[/if]--> />
+			<br/>
+			<em><!--[gt text="Normaly this is disaable in testmode"]--></em>
+	</div>
+	</form>
+	<br/>	<br/>
+
+	<!--[if $showimage == 1]-->
+	<strong>
+	<!--[pnmodgetvar module=ImageProtection name=useModalbox default=0 assign=modalbox]-->
+	<!--[ if $modalbox eq 1]-->
+		<!--[gt text="Show Image as Modalbox" assign=text]-->		
+	<!--[else]-->
+		<!--[gt text="Show Image" assign=text]-->
+	<!--[/if]-->
+
+	<!--[imageprotection_show_imagelink src=$src text=$text fullpath=true]-->
+	<br/>	
+	<!--[imageprotection_show_thumbnail src=$src title=$text fullpath=true]-->
+	<br/>
+	<!--[gt text="Show smaller Image with link" assign=text ]-->
+	<!--[imageprotection_show_thumbnail src=$src title=$text fullpath=true force=true showImageLink=true width=50 height=50]-->	
+	
+	</strong>
+	<br/>	<br/>	<br/>
+	<!--[imageprotection_showimage src=$src force=$force fullpath=true]-->
+	<!--[/if]-->
+
+</div>
+
