@@ -10,7 +10,7 @@
 $dom = ZLanguage::getModuleDomain('ImageProtection');
 
 $modversion['name']           = 'ImageProtection';
-$modversion['version']        = '0.2';
+$modversion['version']        = '1.0';
 $modversion['displayname']    = __('ImageProtection', $dom);
 $modversion['description']    = __('Provides API Functions for Image protection', $dom);
 
