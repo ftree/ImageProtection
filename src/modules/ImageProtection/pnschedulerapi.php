@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 2 $ $Modtime: 14.08.09 19:15 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 /**

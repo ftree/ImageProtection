@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 11 $ $Modtime: 11.03.10 21:49 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 
@@ -17,7 +17,7 @@
 function ImageProtection_init()
 {
 	$dom = ZLanguage::getModuleDomain('ImageProtection');
-	    
+
 	$settings = array('common_MaxWidth' 		=> 800,
 					  'common_MaxHeight' 		=> 600,
 					  'common_MaxThumbWidth' 	=> 100,
@@ -67,13 +67,13 @@ function ImageProtection_init()
 	// Register System Hook
     if (!pnModRegisterHook('zikula', 'systeminit', 'GUI', 'ImageProtection', 'user', 'LoadThickBox')) {
         return LogUtil::registerError(__('Error creating System Hook!', $dom));
-    }	
-	
+    }
+
     // Set up module hooks
     if (!pnModRegisterHook('item', 'transform', 'API', 'ImageProtection', 'user','FormatURL')) {
         return LogUtil::registerError(__('Error creating Module Hook!', $dom));
-    }	
-	
+    }
+
     // Initialisation successful
 
     return true;
@@ -109,19 +109,19 @@ function ImageProtection_upgrade($oldversion)
 function ImageProtection_delete()
 {
 	$dom = ZLanguage::getModuleDomain('ImageProtection');
-		
+
     pnModDelVar('ImageProtection');
 
     // delete the system init hook
     if (!pnModUnregisterHook('zikula', 'systeminit', 'GUI', 'ImageProtection', 'user', 'LoadThickBox')) {
         return LogUtil::registerError(__('Error deleting System Hook!', $dom));
     }
-    
+
     // delete the system init hook
     if (!pnModUnregisterHook('item', 'transform', 'API', 'ImageProtection', 'user','FormatURL')) {
         return LogUtil::registerError(__('Error deleting Modul Hook!', $dom));
-    }    
-    
+    }
+
     // Deletion successful
     return true;
 

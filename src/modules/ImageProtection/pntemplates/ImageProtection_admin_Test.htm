@@ -1,7 +1,7 @@
 <!--[*  $Author: Flo $ $Revision: 9 $ $Modtime: 11.03.10 23:28 $ $Id: $  *]-->
 
-<!--[pnpageaddvar name=stylesheet value=modules/ImageProtection/pnjavascript/modalbox1.5.5/modalbox.css]-->
-<!--[pnajaxheader modname=ImageProtection filename=modalbox1.5.5\modalbox.js effects=true]-->
+<!--[*pnpageaddvar name=stylesheet value=modules/ImageProtection/pnjavascript/modalbox1.5.5/modalbox.css*]-->
+<!--[*pnajaxheader modname=ImageProtection filename=modalbox1.5.5\modalbox.js effects=true*]-->
 
 <!--[include file="ImageProtection_admin_menu.htm"]-->
 <div class="pn-admincontainer">
@@ -31,18 +31,18 @@
 	<strong>
 	<!--[pnmodgetvar module=ImageProtection name=useModalbox default=0 assign=modalbox]-->
 	<!--[ if $modalbox eq 1]-->
-		<!--[gt text="Show Image as Modalbox" assign=text]-->		
+		<!--[gt text="Show Image as Modalbox" assign=text]-->
 	<!--[else]-->
 		<!--[gt text="Show Image" assign=text]-->
 	<!--[/if]-->
 
 	<!--[imageprotection_show_imagelink src=$src text=$text fullpath=true]-->
-	<br/>	
+	<br/>
 	<!--[imageprotection_show_thumbnail src=$src title=$text fullpath=true]-->
 	<br/>
 	<!--[gt text="Show smaller Image with link" assign=text ]-->
-	<!--[imageprotection_show_thumbnail src=$src title=$text fullpath=true force=true showImageLink=true width=50 height=50]-->	
-	
+	<!--[imageprotection_show_thumbnail src=$src title=$text fullpath=true force=true showImageLink=true width=50 height=50]-->
+
 	</strong>
 	<br/>	<br/>	<br/>
 	<!--[imageprotection_showimage src=$src force=$force fullpath=true]-->

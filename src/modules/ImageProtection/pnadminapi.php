@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 6 $ $Modtime: 8.02.10 21:30 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 
@@ -19,12 +19,12 @@ function ImageProtection_adminapi_getlinks()
     if (!SecurityUtil::checkPermission('ImageProtection::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
     }
-        
+
     $links = array();
     $links[] = array('url' => pnModURL('ImageProtection', 'admin', 'Settings'), 'text' => __('Settings', $dom));
-	$links[] = array('url' => pnModURL('ImageProtection', 'admin', 'Cache'), 	'text' => __('Cache Settings', $dom));    
+	$links[] = array('url' => pnModURL('ImageProtection', 'admin', 'Cache'), 	'text' => __('Cache Settings', $dom));
     $links[] = array('url' => pnModURL('ImageProtection', 'admin', 'Test'),     'text' => __('Test', $dom));
-    
+
     return $links;
 }
 
@@ -35,19 +35,19 @@ function ImageProtection_adminapi_getlinks()
  */
 function ImageProtection_adminapi_deleteCache()
 {
-    $settings = pnModGetVar('ImageProtection');    
+    $settings = pnModGetVar('ImageProtection');
 
    	$paths = array('CacheReWmImages',
 			   'CacheProtected',
 			   'CacheCroped',
 			   'CacheWM',
 			   'CacheTemp');
-    
+
 	foreach ($paths as $path) {
 		if ($settings["age_$path"] > 0 ) {
 			$Dels["path_$path"] = ImageProtection_adminapi_deleteFiles(array('path' => $settings["path_$path"],
 															  	 	     	 'age'  => $settings["age_$path"]));
-		}    
+		}
 	}
 
 	return $Dels;
@@ -60,18 +60,18 @@ function ImageProtection_adminapi_deleteCache()
  */
 function ImageProtection_adminapi_deleteCompleteCache()
 {
-	
-	$settings = pnModGetVar('ImageProtection');    
+
+	$settings = pnModGetVar('ImageProtection');
 
 	$paths = array('CacheReWmImages',
 				   'CacheProtected',
 				   'CacheCroped',
 				   'CacheWM',
 				   'CacheTemp');
-	
+
 	foreach ($paths as $path) {
 		$Dels["path_$path"] = ImageProtection_adminapi_deleteFiles(array('path' => $settings["path_$path"],
-															  	 	     'age'  => 0));    
+															  	 	     'age'  => 0));
 	}
 	return $Dels;
 }
@@ -81,7 +81,7 @@ function ImageProtection_adminapi_deleteCompleteCache()
  *
  * @param string $args[path]
  * @param integer $args['age']
- * 
+ *
  * @return array('count','size')
  */
 function ImageProtection_adminapi_deleteFiles($args)
@@ -92,7 +92,7 @@ function ImageProtection_adminapi_deleteFiles($args)
 	$comparedatestr = DateUtil::getDatetime_NextDay(intval($age)*-1);
 	$comparedate=strtotime($comparedatestr);
 
-	$result = ImageProtection_adminapi_doDeleteFiles(array('path'		 	=> $path, 
+	$result = ImageProtection_adminapi_doDeleteFiles(array('path'		 	=> $path,
 												  		   'comparedate'	=> $comparedate,
 												 		   'doDateCheck' 	=> ($age==0) ? false : true));
 
@@ -103,7 +103,7 @@ function ImageProtection_adminapi_deleteFiles($args)
 /**
  * Checks if a Path exists and is writeable
  * @param string $args[path]	The Path to check
- * 
+ *
  * @return Boolean
  */
 function ImageProtection_adminapi_checkPath($args)
@@ -111,22 +111,22 @@ function ImageProtection_adminapi_checkPath($args)
 	$path = $args[path];
 	$isDir = is_dir($path);
 	$isWriteable = is_writeable($path);
-	
+
 	return $isDir & $isWriteable;
-	
+
 }
 
 /**
  * Returns the amount of Files in a directory
  *
  * @param string $args[path]	The Path to count files
- * 
+ *
  * @return array('count', 'size', 'dircount')
  */
 function ImageProtection_adminapi_getDirInfo($args)
 {
 	$path = $args['path'];
-	
+
 	$result = ImageProtection_adminapi_getDirectorySize($path);
 	$result['size'] = ImageProtection_adminapi_sizeFormat($result['size']);
 
@@ -140,22 +140,22 @@ function ImageProtection_adminapi_getDirInfo($args)
  * @param string 	$args[path]
  * @param datetime 	$args[comparedate]
  * @param boolean 	$args[doDateCheck]
- * 
+ *
  * @return array('count', 'size')
  */
 function ImageProtection_adminapi_doDeleteFiles($args){
 
-	$path 		 = $args['path']; 
-	$comparedate = $args['comparedate']; 
+	$path 		 = $args['path'];
+	$comparedate = $args['comparedate'];
 	$doDateCheck = $args['doDateCheck'];
-	
+
 	$dir = opendir($path);
 	$size 	= 0;
 	$count 	= 0;
  	if(!$dir){ return 0; }
 	while($entry = readdir($dir)){
-		if(is_dir($path.$entry) && ($entry != ".." && $entry != ".")){                            
-			$args['path'] = $path.$entry.'/'; 
+		if(is_dir($path.$entry) && ($entry != ".." && $entry != ".")){
+			$args['path'] = $path.$entry.'/';
 			$result = ImageProtection_adminapi_doDeleteFiles($args);
 			$size 	+= $result['size'];
 			$count 	+= $result['count'];
@@ -169,20 +169,20 @@ function ImageProtection_adminapi_doDeleteFiles($args){
 						//echo $fulldir.'=>'.$last_modified_str;
 						//echo "<BR>";
 						$size += filesize ($fulldir);
-						$count += 1;	
-						unlink($fulldir);				
+						$count += 1;
+						unlink($fulldir);
 					}
 				} else {
 					//echo $fulldir.'=>'.$last_modified_str;
 					//echo "<BR>";
 					$size += filesize ($fulldir);
 					$count += 1;
-					unlink($fulldir);					
+					unlink($fulldir);
 				}
 			}
 		}
 	}
-	
+
 	return array('size'=> $size, 'count' => $count);
 }
 
@@ -190,7 +190,7 @@ function ImageProtection_adminapi_doDeleteFiles($args){
  * Recursive Function for File Count and size evaluation
  *
  * @param string $path
- * 
+ *
  * @return array('count', 'size', 'dircount')
  */
 function ImageProtection_adminapi_getDirectorySize($path)
@@ -221,13 +221,13 @@ function ImageProtection_adminapi_getDirectorySize($path)
 	$total['count'] = $totalcount;
 	$total['dircount'] = $dircount;
 	return $total;
-} 
+}
 
 /**
  * Formats a given File Size in a readable String
  *
  * @param integer $size
- * 
+ *
  * @return string
  */
 function ImageProtection_adminapi_sizeFormat($size)
@@ -252,7 +252,7 @@ function ImageProtection_adminapi_sizeFormat($size)
         return $size." GB";
     }
 
-}  
+}
 
 
 ?>

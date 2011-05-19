@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 12 $ $Modtime: 11.03.10 22:01 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 
@@ -62,7 +62,7 @@ function ImageProtection_admin_Settings()
 			$userneedle[] = '%'.$key.'%';
 		}
 	}
-		
+
 	$ProfVars = pnModAPIFunc('MyProfile','user','getProfile',array('uid'=>pnUserGetVar('uid')));
 	foreach ($ProfVars as $key => $val) {
 		$profileneedle[] = '%'.$key.'%';
@@ -77,8 +77,8 @@ function ImageProtection_admin_Settings()
 	$Access['path_CacheCroped'] 	= pnModAPIFunc('ImageProtection','admin','checkPath',array('path'=>$settings['path_CacheCroped']));
 	$Access['path_CacheWM'] 		= pnModAPIFunc('ImageProtection','admin','checkPath',array('path'=>$settings['path_CacheWM']));
 	$Access['path_CacheTemp'] 		= pnModAPIFunc('ImageProtection','admin','checkPath',array('path'=>$settings['path_CacheTemp']));
-	
-	
+
+
 	// get all mods
     $modules = pnModGetAllMods();
 
@@ -87,11 +87,11 @@ function ImageProtection_admin_Settings()
 		if ($module['type'] == 2 || $module['type'] ==3) {
 	        $Mods[$module['name']] = $module['displayname'];
 		}
-    }	
-	
+    }
+
 	$settings['wmt_textuservariables'] 	 = implode($userneedle,", ");
 	$settings['wmt_textprofilvariables'] = implode($profileneedle,", ");
-	
+
 	// start a new pnRender display instance
 	$render = & pnRender::getInstance('ImageProtection',false);
 
@@ -99,10 +99,10 @@ function ImageProtection_admin_Settings()
 	$render->assign('Settings', $settings);
 	$render->assign('Modules', $Mods);
 
-	$render->assign('DirAccess', $Access);	
-	
+	$render->assign('DirAccess', $Access);
+
 	$render->assign('TTFfiles', $TTFfiles);
-	$render->assign('WMfiles', $WMfiles);	
+	$render->assign('WMfiles', $WMfiles);
 	// fetch, process and display template
 	return $render->fetch('ImageProtection_admin_Settings.htm');
 }
@@ -140,7 +140,7 @@ function ImageProtection_admin_editSettings()
 	$settings['path_CacheCroped'] 	  = ImageProtection_admin_FormatPath(array('path'=>$settings['path_CacheCroped']));
 	$settings['path_CacheWM'] 	 	  = ImageProtection_admin_FormatPath(array('path'=>$settings['path_CacheWM']));
 	$settings['path_CacheTemp'] 	  = ImageProtection_admin_FormatPath(array('path'=>$settings['path_CacheTemp']));
-		
+
 	foreach ($settings as $key => $value) {
 		pnModSetVar('ImageProtection', $key, $value);
 	}
@@ -167,20 +167,20 @@ function ImageProtection_admin_Test()
 	$test_image = FormUtil::getPassedValue('test_image');
     $test_show  = FormUtil::getPassedValue('test_show');
     $test_debug = FormUtil::getPassedValue('test_debug');
-    $test_cache = FormUtil::getPassedValue('test_cache') == 1 ? false : true;        
-    
+    $test_cache = FormUtil::getPassedValue('test_cache') == 1 ? false : true;
+
     if ($test_debug == 1) {
     	pnSessionSetVar("ImageProtectionDebug",1);
     } else {
     	pnSessionDelVar("ImageProtectionDebug");
     }
-        
+
     //$settings = pnModGetVar('ImageProtection');
 	$docRoot = pnServerGetVar('DOCUMENT_ROOT');
 	$lastchar = substr($docRoot,-1);
 	if ($lastchar != "\\" && $lastchar != "/" && $path != "") {
 		$docRoot = $docRoot."/";
-	}	
+	}
 	$dir = $docRoot.pnModGetBaseDir('ImageProtection').'/pnimages/test';
 	if (is_dir($dir)) {
 		$d = dir($dir);
@@ -191,23 +191,23 @@ function ImageProtection_admin_Test()
 				$TESTfiles[] = array('file'=>$dir.'/'.$TESTfile,'display'=>$TESTfile);
 			}
 		}
-	}    
+	}
 
 	if ($test_show == 1) {
 		pnModAPIFunc('ImageProtection','user','LoadThickBox');
 	}
-	
+
 	// start a new pnRender display instance
 	$render = & pnRender::getInstance('ImageProtection',false);
 	$render->assign('TESTfiles',  $TESTfiles);
 	$render->assign('test_image', $test_image);
 	$render->assign('test_debug', $test_debug);
 	$render->assign('test_cache', $test_cache ? 0 : 1);
-	
+
 	$render->assign('showimage', 	$test_show);
 	$render->assign('force', 		$test_cache);
 	$render->assign('src',   		$test_image);
-	
+
 	// fetch, process and display template
 	return $render->fetch('ImageProtection_admin_Test.htm');
 }
@@ -225,10 +225,10 @@ function ImageProtection_admin_FormatPath($args)
 	if ($lastchar != "\\" && $lastchar != "/" && $path != "") {
 		$path = $path."/";
 	}
-	mkdir($path,null,true);	
+	mkdir($path,null,true);
 	$fp=fopen($path.'index.html','w+');
 	fclose($fp);
-	
+
 	return $path;
 }
 
@@ -243,9 +243,9 @@ function ImageProtection_admin_Cache()
 	if (!SecurityUtil::checkPermission('ImageProtection::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
     }
-	
+
 	$settings = pnModGetVar('ImageProtection');
-	
+
 	$DirInfo['path_CacheReWmImages'] = pnModAPIFunc('ImageProtection','admin','getDirInfo',array('path'=>$settings['path_CacheReWmImages']));
 	$DirInfo['path_CacheProtected']  = pnModAPIFunc('ImageProtection','admin','getDirInfo',array('path'=>$settings['path_CacheProtected']));
 	$DirInfo['path_CacheCroped'] 	 = pnModAPIFunc('ImageProtection','admin','getDirInfo',array('path'=>$settings['path_CacheCroped']));
@@ -254,7 +254,7 @@ function ImageProtection_admin_Cache()
 
 	$Dels = pnSessionGetVar('IMPRO_DELS');
 	pnSessionDelVar('IMPRO_DELS');
-	
+
 	// start a new pnRender display instance
 	$render = & pnRender::getInstance('ImageProtection',false);
 
@@ -263,10 +263,10 @@ function ImageProtection_admin_Cache()
 
 	$render->assign('DirInfo', $DirInfo);
 	$render->assign('DelInfo', $Dels);
-	
+
 	// fetch, process and display template
 	return $render->fetch('ImageProtection_admin_Cache.htm');
-	
+
 }
 
 /**
@@ -280,7 +280,7 @@ function ImageProtection_admin_editCache()
 	if (!SecurityUtil::checkPermission('ImageProtection::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
     }
-	
+
     // Confirm authorisation code
     if (!SecurityUtil::confirmAuthKey()) {
         return LogUtil::registerAuthidError (pnModURL('ImageProtection', 'admin', 'main'));
@@ -296,8 +296,8 @@ function ImageProtection_admin_editCache()
 	// the module configuration has been updated successfuly
     LogUtil::registerStatus (__('Done! Module configuration updated.', $dom));
 
-	return pnRedirect(pnModURL('ImageProtection','admin','Cache'));    
-	
+	return pnRedirect(pnModURL('ImageProtection','admin','Cache'));
+
 }
 
 /**
@@ -317,8 +317,8 @@ function ImageProtection_admin_deleteCache()
 						 'deleteCache');
 
 	pnSessionSetVar('IMPRO_DELS',$Dels);
-	
-    return pnRedirect(pnModURL('ImageProtection','admin','Cache'));    
+
+    return pnRedirect(pnModURL('ImageProtection','admin','Cache'));
 }
 
 /**
@@ -332,15 +332,15 @@ function ImageProtection_admin_deleteCompleteCache()
 	if (!SecurityUtil::checkPermission('ImageProtection::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerError(__('Sorry! No authorization to access this module.', $dom), 403);
     }
-    
+
    	$Dels = pnModAPIFunc('ImageProtection',
 			 		     'admin',
 						 'deleteCompleteCache');
 
 	pnSessionSetVar('IMPRO_DELS',$Dels);
-  
-    
-    return pnRedirect(pnModURL('ImageProtection','admin','Cache'));    
+
+
+    return pnRedirect(pnModURL('ImageProtection','admin','Cache'));
 }
 
 

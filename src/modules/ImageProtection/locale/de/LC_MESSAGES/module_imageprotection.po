@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ImageProtection\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-10 20:34+0000\n"
+"POT-Creation-Date: 2011-05-19 10:15+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,17 +16,17 @@ msgstr ""
 
 #: pnadmin.php:30
 #: pnadmin.php:120
-#: pnadmin.php:163
-#: pnadmin.php:243
-#: pnadmin.php:280
-#: pnadmin.php:311
-#: pnadmin.php:332
+#: pnadmin.php:164
+#: pnadmin.php:244
+#: pnadmin.php:281
+#: pnadmin.php:312
+#: pnadmin.php:333
 #: pnadminapi.php:20
 msgid "Sorry! No authorization to access this module."
 msgstr "Sorry! Du hast keine Berechtigungen für das Modul."
 
-#: pnadmin.php:148
-#: pnadmin.php:296
+#: pnadmin.php:149
+#: pnadmin.php:297
 msgid "Done! Module configuration updated."
 msgstr "Fertig. Modul Einstellungen gespeichert."
 
@@ -37,10 +37,6 @@ msgstr "ImageProtection"
 #: pnversion.php:15
 msgid "Provides API Functions for Image protection"
 msgstr "Bietet Funktionen um Bilderklau zu erschweren"
-
-#: pntemplates/plugins/function.imageprotection_show_imagelink.php:62
-msgid "Show image as \"Lightbox\" effect"
-msgstr "Bild als \"Lightbox\" Effekt anzeigen"
 
 #: pnadminapi.php:24
 #: pntemplates/ImageProtection_admin_Settings.htm:7
@@ -53,9 +49,25 @@ msgid "Cache Settings"
 msgstr "Cache Einstellungen"
 
 #: pnadminapi.php:26
-#: pntemplates/ImageProtection_admin_Test.htm:6
+#: pntemplates/ImageProtection_admin_Test.htm:9
 msgid "Test"
 msgstr "Testen"
+
+#: pninit.php:69
+msgid "Error creating System Hook!"
+msgstr "Fehler beim Erzeugen des System Hooks!"
+
+#: pninit.php:74
+msgid "Error creating Module Hook!"
+msgstr "Fehler beim Erzeugen des Modul Hooks!"
+
+#: pninit.php:117
+msgid "Error deleting System Hook!"
+msgstr "Fehler beim Löschen des System Hooks!"
+
+#: pninit.php:122
+msgid "Error deleting Modul Hook!"
+msgstr "Fehler beim Löschen des Modul Hooks!"
 
 #: pntemplates/ImageProtection_admin_Settings.htm:12
 msgid "Common Settings"
@@ -93,295 +105,305 @@ msgstr "Max. Thumbnail Höhe"
 msgid "Thumbnails will be resized to this height"
 msgstr "Die Thumbnails werden auf diese Höhe verkleinert"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:34
+#: pntemplates/ImageProtection_admin_Settings.htm:35
+#, fuzzy
+msgid "Show Image with Modalbox Effect"
+msgstr "Bild als \"Lightbox\" Effekt anzeigen"
+
+#: pntemplates/ImageProtection_admin_Settings.htm:37
+msgid "Shows the image in an div witch appears from the top of the page"
+msgstr ""
+
+#: pntemplates/ImageProtection_admin_Settings.htm:41
 msgid "Function to create the Name of the Files"
 msgstr "Funktion zur Namesvergabe"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:38
+#: pntemplates/ImageProtection_admin_Settings.htm:45
 msgid "Module"
 msgstr "Module"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:50
+#: pntemplates/ImageProtection_admin_Settings.htm:57
 msgid "Type"
 msgstr "Type"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:54
+#: pntemplates/ImageProtection_admin_Settings.htm:61
 msgid "Function"
 msgstr "Funktion"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:57
+#: pntemplates/ImageProtection_admin_Settings.htm:64
 msgid "Here you can define a Function witch creates the Names of the files."
 msgstr "Hier kann man eine Funktion angeben, die für die Namensgebung der Files zuständig ist."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:61
+#: pntemplates/ImageProtection_admin_Settings.htm:68
 msgid "Path settings"
 msgstr "Pfad Einstellungen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:64
+#: pntemplates/ImageProtection_admin_Settings.htm:71
 msgid "Path to the original images"
 msgstr "Pfad für die Original Bilder"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:66
-#: pntemplates/ImageProtection_admin_Settings.htm:78
-#: pntemplates/ImageProtection_admin_Settings.htm:90
-#: pntemplates/ImageProtection_admin_Settings.htm:102
-#: pntemplates/ImageProtection_admin_Settings.htm:114
-#: pntemplates/ImageProtection_admin_Settings.htm:126
-#: pntemplates/ImageProtection_admin_Settings.htm:138
-#: pntemplates/ImageProtection_admin_Settings.htm:150
-#: pntemplates/ImageProtection_admin_Settings.htm:162
+#: pntemplates/ImageProtection_admin_Settings.htm:73
+#: pntemplates/ImageProtection_admin_Settings.htm:85
+#: pntemplates/ImageProtection_admin_Settings.htm:97
+#: pntemplates/ImageProtection_admin_Settings.htm:109
+#: pntemplates/ImageProtection_admin_Settings.htm:121
+#: pntemplates/ImageProtection_admin_Settings.htm:133
+#: pntemplates/ImageProtection_admin_Settings.htm:145
+#: pntemplates/ImageProtection_admin_Settings.htm:157
+#: pntemplates/ImageProtection_admin_Settings.htm:169
 msgid "Directory exists and has write privilegies!"
 msgstr "Verzeichnis existiert und hat Schreibzugriff!"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:68
-#: pntemplates/ImageProtection_admin_Settings.htm:80
-#: pntemplates/ImageProtection_admin_Settings.htm:92
-#: pntemplates/ImageProtection_admin_Settings.htm:104
-#: pntemplates/ImageProtection_admin_Settings.htm:116
-#: pntemplates/ImageProtection_admin_Settings.htm:128
-#: pntemplates/ImageProtection_admin_Settings.htm:140
-#: pntemplates/ImageProtection_admin_Settings.htm:152
-#: pntemplates/ImageProtection_admin_Settings.htm:164
+#: pntemplates/ImageProtection_admin_Settings.htm:75
+#: pntemplates/ImageProtection_admin_Settings.htm:87
+#: pntemplates/ImageProtection_admin_Settings.htm:99
+#: pntemplates/ImageProtection_admin_Settings.htm:111
+#: pntemplates/ImageProtection_admin_Settings.htm:123
+#: pntemplates/ImageProtection_admin_Settings.htm:135
+#: pntemplates/ImageProtection_admin_Settings.htm:147
+#: pntemplates/ImageProtection_admin_Settings.htm:159
+#: pntemplates/ImageProtection_admin_Settings.htm:171
 msgid "Directory does not exist or has no write privilegies!"
 msgstr "Verzeichnis existiert nicht oder hat keinen Schreibzugriff!"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:72
+#: pntemplates/ImageProtection_admin_Settings.htm:79
 msgid "Here the images are stores, the User uploads. <br/>This should be outside the Document Root."
 msgstr "Hier werden die Original Bilder (die der User rauf läd) gepseichert. Dies sollte außerhalb des Document Root liegen."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:76
+#: pntemplates/ImageProtection_admin_Settings.htm:83
 msgid "Path to the thumbnail images"
 msgstr "Pfad für die Thumbnail Bilder"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:84
+#: pntemplates/ImageProtection_admin_Settings.htm:91
 msgid "Here the thumbnails are stores."
 msgstr "Hier werden die Thumbnail Bilder (verkleinerte Original Bilder) gepseichert."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:88
+#: pntemplates/ImageProtection_admin_Settings.htm:95
 msgid "Path to the watermark images"
 msgstr "Pfad für die Watermark Bilder"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:96
+#: pntemplates/ImageProtection_admin_Settings.htm:103
 msgid "Here the Original watermark Images are stored.<br/>This should be outside the Document Root."
 msgstr "Hier werden die Original Wasserzeichen gespeichert.<br/>Sollte außerhalb des Docuemnt Root liegen."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:100
+#: pntemplates/ImageProtection_admin_Settings.htm:107
 msgid "Path for div. caches"
 msgstr "Pfad für div. Caches"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:108
+#: pntemplates/ImageProtection_admin_Settings.htm:115
 msgid "This is the root for caching.<br/>This should be outside the Document Root."
 msgstr "Das ist das Root Verzeichnis für den Bilder Cache.<br/>Sollte auch außerhalb des Document Root liegen. Aus performance Gründen kann es auch unter dem Document Root liegen."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:112
+#: pntemplates/ImageProtection_admin_Settings.htm:119
 msgid "Path for resized watermarks"
 msgstr "Pfad für die verkleinerten Wasserzeichen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:120
+#: pntemplates/ImageProtection_admin_Settings.htm:127
 msgid "Here the resized watermarks are stored"
 msgstr "Hier werden die verkleinerten Wasserzeichen gespeichert."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:124
+#: pntemplates/ImageProtection_admin_Settings.htm:131
 msgid "Path for resized Images with watermark"
 msgstr "Pfad für die verkleinerten Bilder inkl. Wasserzeichen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:132
+#: pntemplates/ImageProtection_admin_Settings.htm:139
 msgid "Here the resized images with the resized watermark are stored"
 msgstr "Hier werden die verkleinerten Bilder mit Wasserezichen gespeichert."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:136
+#: pntemplates/ImageProtection_admin_Settings.htm:143
 msgid "Path for images with userspez. watermark"
 msgstr "Pfad für die Bilder inkl. Userspez. Wasserzeichen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:144
+#: pntemplates/ImageProtection_admin_Settings.htm:151
 msgid "Here the images with the userspez. watermark are stored."
 msgstr "Hier werden die verkleinerten Bilder mit Userspez. Wasserezichen gespeichert."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:148
+#: pntemplates/ImageProtection_admin_Settings.htm:155
 msgid "Path for cropped images"
 msgstr "Pfad für die zerschnittenen Bilder"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:156
+#: pntemplates/ImageProtection_admin_Settings.htm:163
 msgid "Here the croped images are stored."
 msgstr "Hier werden die zerschnittenen Bilder gespeichert."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:160
+#: pntemplates/ImageProtection_admin_Settings.htm:167
 msgid "Path for Temp Images"
 msgstr "Pfad für temporäre Files"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:168
+#: pntemplates/ImageProtection_admin_Settings.htm:175
 msgid "This Path is used, if the other directories are under the Documtn Root.<br>This path must be over the Document Root."
 msgstr "Diese Pfad wird genutzt falls die anderen Cache Vezeichnisse außerhald des Document Root liegen."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:173
+#: pntemplates/ImageProtection_admin_Settings.htm:180
 msgid "Image watermark settings"
 msgstr "Bild Wasserzeichen Einstellungen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:174
+#: pntemplates/ImageProtection_admin_Settings.htm:181
 msgid "Settings to put the watermark on an image"
 msgstr "Div. Einstellungen um ein Bild mit einem Wasserezichen zu versehen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:177
-#: pntemplates/ImageProtection_admin_Settings.htm:212
-#: pntemplates/ImageProtection_admin_Settings.htm:267
+#: pntemplates/ImageProtection_admin_Settings.htm:184
+#: pntemplates/ImageProtection_admin_Settings.htm:219
+#: pntemplates/ImageProtection_admin_Settings.htm:274
 #: pntemplates/ImageProtection_admin_Cache.htm:33
 msgid "Enabled"
 msgstr "Aktiviert"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:179
+#: pntemplates/ImageProtection_admin_Settings.htm:186
 msgid "Enable or disable image watermarking"
 msgstr "Wasserzeichen Ein oder Aus schalten"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:182
+#: pntemplates/ImageProtection_admin_Settings.htm:189
 #, fuzzy
 msgid "Size of watermark in percent"
 msgstr "Größe des Wasserezichens in Prozent"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:184
+#: pntemplates/ImageProtection_admin_Settings.htm:191
 #, fuzzy
 msgid "Size in percent of the biggest value (width or height) of the original Image."
 msgstr "Größe in Prozent des größeren Wertes (Breite oder Höhe) vom Origianl Bild."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:187
+#: pntemplates/ImageProtection_admin_Settings.htm:194
 msgid "Position of the watermark"
 msgstr "Position des Wasserezichens"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:189
-#: pntemplates/ImageProtection_admin_Settings.htm:230
+#: pntemplates/ImageProtection_admin_Settings.htm:196
+#: pntemplates/ImageProtection_admin_Settings.htm:237
 msgid "BR, BL, TR, TL, C, R, L, T, B, * B=bottom, T=top, L=left, R=right, C=centre, *=tile"
 msgstr "BR, BL, TR, TL, C, R, L, T, B, * B=bottom, T=top, L=left, R=right, C=centre, *=tile"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:192
+#: pntemplates/ImageProtection_admin_Settings.htm:199
 msgid "Opacity of the watermark"
 msgstr "Transparenz des Wasserezichens"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:194
-#: pntemplates/ImageProtection_admin_Settings.htm:249
+#: pntemplates/ImageProtection_admin_Settings.htm:201
+#: pntemplates/ImageProtection_admin_Settings.htm:256
 msgid "in percent (100=full Transparence, 0=no Transparence)"
 msgstr "in Prozent (100=volle Transparenz, 0=keine Transparenz)"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:197
+#: pntemplates/ImageProtection_admin_Settings.htm:204
 msgid "Watermark Image"
 msgstr "Wasserzeichen Bild"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:204
+#: pntemplates/ImageProtection_admin_Settings.htm:211
 msgid "This image will be used for watermarking.<br/>The images will be loaded from the 'Path to the Watermark Images' directory."
 msgstr "Dieses Bild wird als Wasserezichen verwendet.<br/>Die Bilder die hier zur Auswahl stehen, werden aus dem \"Pfad für die Watermark Bilder\" Verzeichnis geladen."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:209
+#: pntemplates/ImageProtection_admin_Settings.htm:216
 msgid "Text Watermark Settings"
 msgstr "Text Wasserzeichen Einstellungen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:210
+#: pntemplates/ImageProtection_admin_Settings.htm:217
 msgid "Settings to put a user spezific watermark on the image."
 msgstr "Div. Einstellungen um ein Bild mit Userspez. Inhalt als Wasserezichen zu versehen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:214
+#: pntemplates/ImageProtection_admin_Settings.htm:221
 msgid "Enable or disable Text watermarking."
 msgstr "Sollen Userinformation auf das Bild gedruckt werden?"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:217
+#: pntemplates/ImageProtection_admin_Settings.htm:224
 msgid "Userinformationen"
 msgstr "Userinformationen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:219
+#: pntemplates/ImageProtection_admin_Settings.htm:226
 #, php-format
 msgid "Her you can use a fixed text or a variable from the User modul or from the MyProfil Modul.<br/><strong>User Variables:</strong> %s <br/><strong>MyProfile Varibales:</strong> %s"
 msgstr "Hier kann ein Fixed Text steht oder Variablen aus dem Userprofil oder aus dem MyProfil Modul.<br/><strong>Uservariablen:</strong> %s<br/><strong>MyProfile Varibalen:</strong> %s"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:223
+#: pntemplates/ImageProtection_admin_Settings.htm:230
 msgid "Fontsize"
 msgstr "Schriftgröße"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:225
+#: pntemplates/ImageProtection_admin_Settings.htm:232
 msgid "Size of the text"
 msgstr "Schriftgröße des Textes"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:228
+#: pntemplates/ImageProtection_admin_Settings.htm:235
 msgid "Position of the text"
 msgstr "Position des Textes"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:233
+#: pntemplates/ImageProtection_admin_Settings.htm:240
 msgid "Textcolor"
 msgstr "Textfarbe"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:235
+#: pntemplates/ImageProtection_admin_Settings.htm:242
 msgid "Color of the text as Hex Code"
 msgstr "Farbe des Tetes als Hex Code"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:238
+#: pntemplates/ImageProtection_admin_Settings.htm:245
 msgid "Font"
 msgstr "Schriftart"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:244
+#: pntemplates/ImageProtection_admin_Settings.htm:251
 msgid "The fonts will be loaded from the phpThumb Settings<BR/>If this is empty the Setting (TTF Directory) in the Thumbnail Modul is wrong."
 msgstr "Die Schriftarten Auswahl wird aus den phpThumb Einstellungen gelesen.<BR/>Sollte hier keine Schriftarten angezeigt werden sind vermutlich die Einstellungen (TTF Directory) im Thumbnail Modul falsch."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:247
+#: pntemplates/ImageProtection_admin_Settings.htm:254
 msgid "Opacity of the Text"
 msgstr "Transparenz des Textes"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:252
+#: pntemplates/ImageProtection_admin_Settings.htm:259
 msgid "Margin aound the Text"
 msgstr "Abstand um den Text"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:254
+#: pntemplates/ImageProtection_admin_Settings.htm:261
 msgid "Margin in pixel"
 msgstr "Abstand in Pixel"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:257
+#: pntemplates/ImageProtection_admin_Settings.htm:264
 msgid "Angel of the Text"
 msgstr "Winkel des Text"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:259
+#: pntemplates/ImageProtection_admin_Settings.htm:266
 msgid "The text will be rotated with this angel.<BR/>0-360 or 'auto' für automatic. Here the text will be aligned on the diagonale of the image. The best way is to use it with 'Position of the text'=*"
 msgstr "Winkel in Grad um den der Text gedreht wird.<BR/>0-360 Oder 'auto' für automatische Ermitlung. Hier wird der Text an der Diagonale des Bildes ausgerichtet. Am besten in Verbundung mit 'Alignment'=*"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:264
+#: pntemplates/ImageProtection_admin_Settings.htm:271
 msgid "Crop Settings"
 msgstr "Zerschneide Einstellungen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:265
+#: pntemplates/ImageProtection_admin_Settings.htm:272
 msgid "Here you can define how the image is cropped."
 msgstr "Hier könen div. Einstellungen gemacht werden, wie das Bild zerschnitten werden soll."
 
-#: pntemplates/ImageProtection_admin_Settings.htm:269
+#: pntemplates/ImageProtection_admin_Settings.htm:276
 msgid "Enable or disable cropping"
 msgstr "Sollen die Bilder zerschnitten werden"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:272
+#: pntemplates/ImageProtection_admin_Settings.htm:279
 msgid "Rows"
 msgstr "Zeilen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:274
+#: pntemplates/ImageProtection_admin_Settings.htm:281
 msgid "Count of rows the image will be cropped."
 msgstr "Anzahl der Zeilen in die das Bild zerschnitten wird"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:278
+#: pntemplates/ImageProtection_admin_Settings.htm:285
 msgid "Columns"
 msgstr "Spalen"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:280
+#: pntemplates/ImageProtection_admin_Settings.htm:287
 msgid "Count of columns the image will be cropped. At the moment not implemented"
 msgstr "Anzahl der Splaten. Im Moment noch nicht implementiert"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:288
+#: pntemplates/ImageProtection_admin_Settings.htm:295
 #: pntemplates/ImageProtection_admin_Cache.htm:88
 msgid "Save"
 msgstr "Speichern"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:289
+#: pntemplates/ImageProtection_admin_Settings.htm:296
 #: pntemplates/ImageProtection_admin_Cache.htm:89
+#: pntemplates/ImageProtection_plugin_Images.htm:84
 msgid "Cancel"
 msgstr "Abbruch"
 
-#: pntemplates/ImageProtection_admin_Settings.htm:290
+#: pntemplates/ImageProtection_admin_Settings.htm:297
 #: pntemplates/ImageProtection_admin_Cache.htm:90
 msgid "If you have done cahnges here, please delete the complete cache."
 msgstr "Solltest du hier was verädert haben, löche bitte auch deinen kompletten Cache."
 
 #: pntemplates/ImageProtection_admin_Cache.htm:5
-#: pntemplates/ImageProtection_admin_Test.htm:5
+#: pntemplates/ImageProtection_admin_Test.htm:8
 msgid "_THUMBNAIL_SETTINGS"
 msgstr "_THUMBNAIL_SETTINGS"
 
@@ -471,23 +493,79 @@ msgstr "Alter für temporäre Files"
 msgid "Image Protection"
 msgstr "Image Protection"
 
-#: pntemplates/ImageProtection_admin_Test.htm:10
+#: pntemplates/ImageProtection_admin_Test.htm:13
 msgid "Select an image to test:"
 msgstr "Wähle ein Bild zum Testen:"
 
-#: pntemplates/ImageProtection_admin_Test.htm:16
+#: pntemplates/ImageProtection_admin_Test.htm:19
 msgid "Show Result"
 msgstr "Zeige Ergebnis"
 
-#: pntemplates/ImageProtection_admin_Test.htm:18
+#: pntemplates/ImageProtection_admin_Test.htm:21
 msgid "Show Debug Info:"
 msgstr "Zeige Debug Info:"
 
-#: pntemplates/ImageProtection_admin_Test.htm:20
+#: pntemplates/ImageProtection_admin_Test.htm:23
 msgid "Force Image regeneration:"
 msgstr "Bilder Neugenerierung erzwingen:"
 
-#: pntemplates/ImageProtection_admin_Test.htm:22
+#: pntemplates/ImageProtection_admin_Test.htm:25
 msgid "Normaly this is disaable in testmode"
 msgstr "Normalerweise ist dies im Tesmodus deaktiviert"
 
+#: pntemplates/ImageProtection_admin_Test.htm:34
+#, fuzzy
+msgid "Show Image as Modalbox"
+msgstr "Bild als \"Lightbox\" Effekt anzeigen"
+
+#: pntemplates/ImageProtection_admin_Test.htm:36
+msgid "Show Image"
+msgstr "Zeige Bild"
+
+#: pntemplates/ImageProtection_admin_Test.htm:43
+msgid "Show smaller Image with link"
+msgstr ""
+
+#: pntemplates/ImageProtection_plugin_Images.htm:3
+#: pntemplates/ImageProtection_plugin_Images.htm:11
+msgid "Insert Image"
+msgstr "Bild einfügen"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:48
+msgid "Description"
+msgstr "Beschreibung"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:56
+#: pntemplates/ImageProtection_plugin_Images.htm:60
+msgid "Upload"
+msgstr "Upload"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:65
+msgid "Orientation"
+msgstr "Ausrichtung"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:69
+msgid "not set"
+msgstr "nicht zugewiesen"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:70
+#: pntemplates/ImageProtection_plugin_Images.htm:73
+msgid "left"
+msgstr "links"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:71
+#: pntemplates/ImageProtection_plugin_Images.htm:74
+msgid "right"
+msgstr "rechts"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:76
+msgid "center"
+msgstr "zentriert"
+
+#: pntemplates/ImageProtection_plugin_Images.htm:83
+msgid "OK"
+msgstr "OK"
+
+#, fuzzy
+#~ msgid "unten"
+#~ msgstr "Funktion"

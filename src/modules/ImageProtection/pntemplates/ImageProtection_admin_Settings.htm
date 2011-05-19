@@ -30,11 +30,13 @@
 				<input name="settings[common_MaxThumbHeight]" type="text" size="10" maxlength="10" value="<!--[$Settings.common_MaxThumbHeight]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Thumbnails will be resized to this height"]--></p>
 			</div>
+<!--[*
 			<div class="z-formrow">
 				<label><!--[gt text="Show Image with Modalbox Effect"]--></label>
 				<input name="settings[useModalbox]" type="checkbox" value="1"<!--[if $Settings.useModalbox == 1]--> checked="checked"<!--[/if]-->/>
 				<br/><p class="z-formnote z-informationmsg"><!--[gt text="Shows the image in an div witch appears from the top of the page"]--></p>
-			</div>			
+			</div>
+*]-->
 			<div class="z-formrow">
 				<label><!--[gt text="Function to create the Name of the Files"]--></label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -58,10 +60,10 @@
 			<div class="z-formrow">
 				<label><!--[gt text="Function"]--></label>
 				<input name="settings[common_FuncFunc]" type="text" size="30" maxlength="50" value="<!--[$Settings.common_FuncFunc]-->" />
-			</div>				
+			</div>
 			<p class="z-formnote z-informationmsg"><!--[gt text="Here you can define a Function witch creates the Names of the files."]--></p>
 		</fieldset>
-	
+
 		<fieldset>
 			<legend><!--[gt text="Path settings"]--></legend>
 			<div class="z-formrow">
@@ -95,7 +97,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_Watermarks]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_Watermarks]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Here the Original watermark Images are stored.<br/>This should be outside the Document Root."]--></p>
@@ -107,7 +109,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_Cache]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_Cache]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="This is the root for caching.<br/>This should be outside the Document Root."]--></p>
@@ -119,7 +121,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_CacheWM]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_CacheWM]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Here the resized watermarks are stored"]--></p>
@@ -131,7 +133,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_CacheReWmImages]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_CacheReWmImages]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Here the resized images with the resized watermark are stored"]--></p>
@@ -143,7 +145,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_CacheProtected]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_CacheProtected]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Here the images with the userspez. watermark are stored."]--></p>
@@ -155,7 +157,7 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_CacheCroped]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_CacheCroped]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="Here the croped images are stored."]--></p>
@@ -167,17 +169,17 @@
 					<!--[pnimg modname='core' src='ok.gif' set='icons/extrasmall'   __alt="Directory exists and has write privilegies!" __title="Directory exists and has write privilegies!"]-->
 					<!--[else]-->
 					<!--[pnimg modname='core' src='agt_stop.gif' set='icons/extrasmall'   __alt="Directory does not exist or has no write privilegies!" __title="Directory does not exist or has no write privilegies!"]-->
-					<!--[/if]-->					
+					<!--[/if]-->
 				</label>
 				<input name="settings[path_CacheTemp]" type="text" size="100" maxlength="500" value="<!--[$Settings.path_CacheTemp]-->" />
 				<p class="z-formnote z-informationmsg"><!--[gt text="This Path is used, if the other directories are under the Documtn Root.<br>This path must be over the Document Root."]--></p>
 			</div>
 		</fieldset>
-	
+
 		<fieldset>
 			<legend><!--[gt text="Image watermark settings"]--></legend>
-			<p class="z-formnote z-informationmsg"><!--[gt text="Settings to put the watermark on an image"]--></p>	
-	
+			<p class="z-formnote z-informationmsg"><!--[gt text="Settings to put the watermark on an image"]--></p>
+
 			<div class="z-formrow">
 				<label><!--[gt text="Enabled"]--></label>
 				<input name="settings[wmi_enabled]" type="checkbox" value="1"<!--[if $Settings.wmi_enabled == 1]--> checked="checked"<!--[/if]-->/>
@@ -209,10 +211,10 @@
 				<p class="z-formnote z-informationmsg"><!--[gt text="This image will be used for watermarking.<br/>The images will be loaded from the 'Path to the Watermark Images' directory."]--></p>
 			</div>
 		</fieldset>
-	
+
 		<fieldset>
 			<legend><!--[gt text="Text Watermark Settings"]--></legend>
-			<p class="z-formnote z-informationmsg"><!--[gt text="Settings to put a user spezific watermark on the image."]--></p>	
+			<p class="z-formnote z-informationmsg"><!--[gt text="Settings to put a user spezific watermark on the image."]--></p>
 			<div class="z-formrow">
 				<label><!--[gt text="Enabled"]--></label>
 				<input name="settings[wmt_enabled]" type="checkbox" value="1"<!--[if $Settings.wmt_enabled == 1]--> checked="checked"<!--[/if]-->/>
@@ -264,10 +266,10 @@
 				<p class="z-formnote z-informationmsg"><!--[gt text="The text will be rotated with this angel.<BR/>0-360 or 'auto' für automatic. Here the text will be aligned on the diagonale of the image. The best way is to use it with 'Position of the text'=*"]--></p>
 			</div>
 		</fieldset>
-	
+
 		<fieldset>
 			<legend><!--[gt text="Crop Settings"]--></legend>
-			<p class="z-formnote z-informationmsg"><!--[gt text="Here you can define how the image is cropped."]--></p>	
+			<p class="z-formnote z-informationmsg"><!--[gt text="Here you can define how the image is cropped."]--></p>
 			<div class="z-formrow">
 				<label><!--[gt text="Enabled"]--></label>
 				<input name="settings[crop_enabled]" type="checkbox" value="1"<!--[if $Settings.crop_enabled == 1]--> checked="checked"<!--[/if]-->/>
@@ -286,14 +288,14 @@
 			</div>
 	*]-->
 		</fieldset>
-	
-	
+
+
 		<!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=ImageProtection]-->
 		<div class="z-formbuttons">
 			<!--[pnbutton src="button_ok.gif" set="icons/small" __alt="Save" __title="Save"]-->
 			<a href="<!--[pnmodurl modname=ImageProtection type=admin func=main]-->"><!--[pnimg modname='core' src="button_cancel.gif" set="icons/small" __alt="Cancel" __title="Cancel"]--></a>
-			<strong style="color:#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;<!--[gt text="If you have done cahnges here, please delete the complete cache."]--></strong>			
-		</div>		
+			<strong style="color:#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;<!--[gt text="If you have done cahnges here, please delete the complete cache."]--></strong>
+		</div>
 
 	</div>
 </form>

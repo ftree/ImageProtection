@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 3 $ $Modtime: 8.02.10 21:32 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 
@@ -41,7 +41,7 @@ function ImageProtection_plugins_UploadImage()
 
 	if ($files !== false) {
 		$file['files'][] = $files['ThumbFile'];
-		
+
 		$ret = pnModAPIFunc('ImageProtection',
 						    'user',
 							'FormatPaths',
@@ -53,7 +53,7 @@ function ImageProtection_plugins_UploadImage()
 							  array('file' => $files['OrigFile']));
 
 		$ThumbURL = $ret['files'][0];
-	
+
 		$render->assign('ThumbURL', $ThumbURL);
 		$render->assign('OrigFile', $OrigFile);
 		$render->assign('baseURI', $baseURI);

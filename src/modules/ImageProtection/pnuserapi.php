@@ -3,7 +3,7 @@
  * @package      ImageProtection
  * @version      $Author: Flo $ $Revision: 20 $ $Modtime: 23.10.10 17:12 $ $Id: $
  * @author       Tree Florian
- * @link         http://code.zikula.org/imageprotection/
+ * @link         https://github.com/ftree/ImageProtection
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
 
@@ -905,7 +905,7 @@ function ImageProtection_userapi_CreateThumbnail ($args)
 {
 	ImageProtection_userapi_debug ("Input ImageProtection_userapi_CreateThumbnail");
 	ImageProtection_userapi_debug ($args);
-	
+
 	$extrapath 	= $args['extrapath'];
 	$filename	= $args['src'];
 	$fullpath	= $args['fullpath'];
@@ -1030,9 +1030,9 @@ function ImageProtection_userapi_FormatURL ($args)
 
 	for ($i=0; $i<count($extrainfo); $i++) {
 		$text = $extrainfo[$i];
-	
+
 		$values=array();
-		$ret = preg_match_all ("|<img(.*)class=\"ImageProtectionImage\"(.*)/>|U", $text, $values);		
+		$ret = preg_match_all ("|<img(.*)class=\"ImageProtectionImage\"(.*)/>|U", $text, $values);
 
 		if ($ret > 0) {
 
@@ -1043,7 +1043,7 @@ function ImageProtection_userapi_FormatURL ($args)
 			for ($j=0; $j<count($values[0]); $j++) {
 				$img = $images[$j];
 				$atts = trim(trim(trim($images[$j],"<img"),">"));
-				
+
 				$attribs = ParseHTML($atts);
 				$src 	 = $attribs['id'];
 				$style 	 = $attribs['style'];
@@ -1056,12 +1056,12 @@ function ImageProtection_userapi_FormatURL ($args)
 					$height = trim($height,"px");
 					$thumb 	= $src;
 					$file 	= $settings['path_Thumbnail']."/".trim($thumb,"/");
-					
+
 					$ThumbInfo	= getimagesize($file);
 				  	$W1			= $ThumbInfo[0];
 				  	$H1  		= $ThumbInfo[1];
 
-				  	if (!($W1-2 <= $width &&  $width <= $W1+2 && 
+				  	if (!($W1-2 <= $width &&  $width <= $W1+2 &&
 				  		  $H1-2 <= $height &&  $height <= $H1+2)) {
 
 				  		$filename = strrchr($thumb,"/");
@@ -1070,14 +1070,14 @@ function ImageProtection_userapi_FormatURL ($args)
 							$extrapath="";
 						} else {
 							$extrapath = str_replace($filename,"",$thumb);
-							$filename=trim($filename,"/");						
+							$filename=trim($filename,"/");
 						}
-	
+
 						ImageProtection_userapi_CreateThumbnail(array('extrapath' => $extrapath,
 					    			 	   							  'fullpath'  => false,
 																	  'src'  	  => $filename,
 																	  'width'	  => $width,
-																	  'height'	  => $height));					
+																	  'height'	  => $height));
 				  	}
 				}
 
@@ -1142,7 +1142,7 @@ function mkdir_recursive($dir)
 }
 
 function ParseHTML ($attribs) {
-	
+
 	$pattern = '/(\\w+)\s*=\\s*("[^"]*"|\'[^\']*\'|[^"\'\\s>]*)/';
 	$matches = array();
 	preg_match_all($pattern, $attribs, $matches, PREG_SET_ORDER);
